@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts "Cleaning DB"
+Project.destroy_all
+
+puts "Creating projects"
+Project.create!(
+  title: "GlowWork",
+  description: "Mood tracking App for remote teams."
+)
+Project.create!(
+  title: "AI Interview Agent",
+  description: "An AI-led candidate screening app built with Rails + OpenAI."
+)
+
+Project.create!(
+  title: "Healthcare Advisory",
+  description: "Advising startups on AI ethics and workflow design."
+)
+puts "#{Project.count}projects created"

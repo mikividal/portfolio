@@ -1,0 +1,24 @@
+.project-card {
+  height: 300px;
+  cursor: pointer;
+}
+
+.project-card img {
+  transition: transform 0.3s ease;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}

@@ -10,3 +10,36 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: #F8F9FA; /* light gray */
+  color: #2D3748; /* slate gray text */
+}
+
+h1, h2, .text-primary-emphasis {
+  color: #2C7A7B; /* soft teal */
+}
+
+.text-secondary {
+  color: #4A5568; /* lighter slate gray */
+}
+
+.btn-primary {
+  background-color: #2C7A7B;
+  border-color: #2C7A7B;
+}
+
+.btn-outline-primary {
+  color: #2C7A7B;
+  border-color: #2C7A7B;
+}
+
+.btn-outline-primary:hover {
+  background-color: #2C7A7B;
+  color: #fff;
+}
+
+#mybutton:hover {
+  background-color:#fff;
+  color:  #2C7A7B;
+}
