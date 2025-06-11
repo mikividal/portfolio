@@ -1,0 +1,16 @@
+<div class="container py-5" id="projects">
+  <h2 class="text-primary-emphasis mb-4">Projects</h2>
+  <div class="row g-4">
+    <% @projects.each do |project| %>
+      <div class="col-md-4">
+        <div class="project-card position-relative overflow-hidden rounded shadow-sm">
+          <%= image_tag "projects/#{project.title}.png", class: "w-100 h-100 object-fit-cover", alt: "#{project.title}" %>
+          <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center px-3">
+            <h5><%= project.title %></h5>
+            <p class="small"><%= project.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

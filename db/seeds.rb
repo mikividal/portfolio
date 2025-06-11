@@ -13,16 +13,16 @@ Project.destroy_all
 
 puts "Creating projects"
 Project.create!(
-  title: "GlowWork",
+  title: "GloWork",
   description: "Mood tracking App for remote teams."
 )
 Project.create!(
-  title: "AI Interview Agent",
-  description: "An AI-led candidate screening app built with Rails + OpenAI."
+  title: "Shift Buddy",
+  description: "Your on-call assistant for tracking tasks and staying focused under pressure."
 )
 
 Project.create!(
-  title: "Healthcare Advisory",
-  description: "Advising startups on AI ethics and workflow design."
+  title: "ConsentCheck",
+  description: "A simple tool that helps healthcare professionals evaluate the ethical and legal compliance of AI tools."
 )
 puts "#{Project.count}projects created"
