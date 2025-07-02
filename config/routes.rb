@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     get :about_me
     get :projects
     get :contact_me
+    get :shiftbuddy
+    get :glo_work
   end
 end

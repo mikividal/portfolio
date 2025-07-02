@@ -17,7 +17,7 @@ Project.create!(
   description: "Mood tracking App for remote teams."
 )
 Project.create!(
-  title: "Shift Buddy",
+  title: "ShiftBuddy",
   description: "Your on-call assistant for tracking tasks and staying focused under pressure."
 )
 

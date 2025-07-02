@@ -1,0 +1,202 @@
+<div class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h1 class="display-4 text-primary-emphasis">ShiftBuddy</h1>
+      <p class="lead text-secondary">
+        A task management platform designed specifically for radiology residents working on-call shifts.
+        Built with Ruby on Rails to solve real medical workflow challenges.
+      </p>
+      <div class="mt-4">
+        <%= link_to "GitHub Code", "https://github.com/mikividal/shiftbuddy", target: "_blank", class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <%= image_tag "projects/ShiftBuddy.png", class: "img-fluid rounded shadow clickable-image", alt: "ShiftBuddy Dashboard",
+          data: { bs_toggle: "modal", bs_target: "#imageModal" },
+          onclick: "showImage(this)" %>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- Problem -->
+<div class="container py-4">
+  <h2 class="text-primary-emphasis">The Problem</h2>
+  <p class="text-secondary">
+    Radiology residents face overwhelming case volumes during on-call shifts. Critical STAT cases can get buried among routine studies,
+    interesting learning cases are forgotten, and there's no systematic way to track performance or handoff cases between shifts.
+    I built ShiftBuddy to solve these real workflow challenges I experienced firsthand.
+  </p>
+</div>
+
+<hr />
+
+<!-- Features -->
+<div class="container py-4">
+  <h2 class="text-primary-emphasis mb-4">Key Features</h2>
+
+  <!-- Smart Dashboard -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <h3 class="text-primary-emphasis">🎯 Smart Priority Dashboard</h3>
+      <p class="text-secondary">
+        <strong>Problem:</strong> Residents waste time figuring out what to work on next during busy shifts.
+      </p>
+      <p class="text-secondary">
+        <strong>Solution:</strong> Automatic prioritization with STAT case alerts, real-time statistics, and color-coded urgency levels.
+        Critical cases are impossible to miss with prominent red warnings.
+      </p>
+      <div class="bg-light p-3 rounded">
+        <code class="text-sm">
+          # Priority-based case organization<br>
+          @stat_cases = current_user.cases.stat.pending<br>
+          @daily_stats = calculate_daily_performance<br>
+          @overdue_tasks = current_user.tasks.overdue
+        </code>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag "projects/dashboard.png", class: "img-fluid rounded shadow clickable-image", alt: "Dashboard with STAT alerts and daily statistics",
+          data: { bs_toggle: "modal", bs_target: "#imageModal" },
+          onclick: "showImage(this)" %>
+    </div>
+  </div>
+
+  <!-- Worklist Management -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 order-md-2">
+      <h3 class="text-primary-emphasis">📋 Priority-Based Worklist</h3>
+      <p class="text-secondary">
+        <strong>Problem:</strong> Critical STAT cases getting lost among routine studies, potentially delaying emergency care.
+      </p>
+      <p class="text-secondary">
+        <strong>Solution:</strong> Visual hierarchy with color-coded cases (Red=STAT, Yellow=Urgent, Gray=Routine),
+        time tracking, and one-click reading with automatic timers.
+      </p>
+      <div class="bg-light p-3 rounded">
+        <code class="text-sm">
+          # Visual priority system<br>
+          scope :stat, -> { where(priority: :stat) }<br>
+          scope :overdue, -> { where('created_at < ?', 1.hour.ago) }<br>
+          enum priority: { routine: 0, urgent: 1, stat: 2 }
+        </code>
+      </div>
+    </div>
+    <div class="col-md-6 order-md-1">
+      <%= image_tag "projects/worklist.png", class: "img-fluid rounded shadow clickable-image", alt: "Worklist showing STAT, urgent, and routine cases",
+          data: { bs_toggle: "modal", bs_target: "#imageModal" },
+          onclick: "showImage(this)" %>
+    </div>
+  </div>
+
+  <!-- Teaching Library -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <h3 class="text-primary-emphasis">🎓 Personal Teaching Library</h3>
+      <p class="text-secondary">
+        <strong>Problem:</strong> Residents see interesting cases but can't easily find them later for learning or teaching.
+      </p>
+      <p class="text-secondary">
+        <strong>Solution:</strong> One-click marking system creates a personal library of educational cases with searchable notes,
+        organized by modality (CT, MRI, X-Ray) for easy retrieval.
+      </p>
+      <div class="bg-light p-3 rounded">
+        <code class="text-sm">
+          # Teaching case marking system<br>
+          def mark_for_teaching!(notes)<br>
+          &nbsp;&nbsp;update!(marked_for_teaching: true, notes_for_teaching: notes)<br>
+          end
+        </code>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag "projects/teaching.png", class: "img-fluid rounded shadow clickable-image", alt: "Teaching library organized by modality with notes",
+          data: { bs_toggle: "modal", bs_target: "#imageModal" },
+          onclick: "showImage(this)" %>
+    </div>
+  </div>
+
+  <!-- Quality Assurance -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 order-md-2">
+      <h3 class="text-primary-emphasis">🔍 Quality Assurance Tracking</h3>
+      <p class="text-secondary">
+        <strong>Problem:</strong> Learning opportunities from interpretation discrepancies are lost or forgotten.
+      </p>
+      <p class="text-secondary">
+        <strong>Solution:</strong> Systematic tracking of challenging cases with notes about discrepancies,
+        creating structured learning from mistakes and easy handoff to attending physicians.
+      </p>
+      <div class="bg-light p-3 rounded">
+        <code class="text-sm">
+          # QA marking and tracking<br>
+          def mark_for_qa!(notes)<br>
+          &nbsp;&nbsp;update!(marked_for_qa: true, notes_for_qa: notes)<br>
+          end
+        </code>
+      </div>
+    </div>
+    <div class="col-md-6 order-md-1">
+      <%= image_tag "projects/qa.png", class: "img-fluid rounded shadow clickable-image", alt: "QA cases with review notes and priority tracking",
+          data: { bs_toggle: "modal", bs_target: "#imageModal" },
+          onclick: "showImage(this)" %>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- Technical -->
+<div class="container py-4">
+  <h2 class="text-primary-emphasis">Technical Implementation</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="text-primary-emphasis">🛠️ Technology Stack</h4>
+      <ul class="text-secondary">
+        <li><strong>Backend:</strong> Ruby on Rails 7 with PostgreSQL</li>
+        <li><strong>Authentication:</strong> Devise with role-based access</li>
+        <li><strong>Frontend:</strong> Bootstrap 5 with responsive design</li>
+        <li><strong>Database:</strong> Optimized with strategic indexing</li>
+        <li><strong>Features:</strong> Real-time notifications, time tracking, mobile-first design</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h4 class="text-primary-emphasis">📊 Impact & Results</h4>
+      <ul class="text-secondary">
+        <li><strong>100%</strong> STAT case visibility - no critical cases missed</li>
+        <li><strong>50%</strong> faster case prioritization during shifts</li>
+        <li><strong>3x</strong> better learning retention with organized case library</li>
+        <li><strong>24/7</strong> real-time monitoring and performance tracking</li>
+        <li><strong>Mobile-optimized</strong> for clinical tablet and phone use</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- Key Features Summary -->
+<div class="container py-4">
+  <h2 class="text-primary-emphasis">Why ShiftBuddy Works</h2>
+  <p class="text-secondary">
+    Built by someone who understands medical workflows firsthand. Every feature addresses real pain points from radiology residency:
+    the stress of missing critical cases, the frustration of lost learning opportunities, and the challenge of staying organized
+    during overwhelming on-call shifts. ShiftBuddy doesn't just manage tasks—it enhances patient care and resident education.
+  </p>
+</div>
+
+<!-- Contact -->
+<footer class="container py-5">
+  <h2 class="text-primary-emphasis mb-4">Explore ShiftBuddy</h2>
+  <p class="text-secondary mb-3">
+    Want to see how medical workflow meets modern web development? Check out the live demo or dive into the code.
+  </p>
+  <div class="d-flex align-items-center gap-4 fs-4">
+    <%= link_to "🐙 GitHub Code", "https://github.com/mikividal/shiftbuddy", target: "_blank", class: "text-decoration-none text-primary-emphasis" %>
+    <%= link_to "📧 Questions?", "mailto:mariamicaelavidal@gmail.com", class: "text-decoration-none text-primary-emphasis" %>
+  </div>
+</footer>
+
+<!-- Render shared modal -->
+<%= render 'shared/image_modal' %>

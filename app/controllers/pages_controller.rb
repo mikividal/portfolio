@@ -5,4 +5,10 @@ class PagesController < ApplicationController
       @myproject = project
     end
   end
+
+  def shiftbuddy
+  end
+
+  def glo_work
+  end
 end
