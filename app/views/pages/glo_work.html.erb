@@ -49,14 +49,14 @@
         <strong>Solution:</strong> Simple emoji-based mood tracking that takes 10 seconds. Users log their daily mood
         when they sign in, creating consistent touchpoints and wellbeing data over time.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Daily mood tracking system<br>
           def log_daily_mood(emoji_mood)<br>
           &nbsp;&nbsp;user.mood_entries.create(mood: emoji_mood, date: Date.current)<br>
           end
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6">
       <%= image_tag "projects/glowork-mood.png", class: "img-fluid rounded shadow clickable-image", alt: "Daily mood check-in with emoji selection",
@@ -75,14 +75,14 @@
         <strong>Solution:</strong> Personal dashboard showing daily mood, upcoming team events, and latest suggestions.
         Users get a clear overview of their wellbeing journey and team dynamics in one place.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Personal dashboard data<br>
           @user_mood = current_user.today_mood<br>
           @upcoming_events = team.events.upcoming.limit(5)<br>
           @recent_suggestions = team.suggestions.recent
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6 order-md-1">
       <%= image_tag "projects/GloWork.png", class: "img-fluid rounded shadow clickable-image", alt: "Personal dashboard with daily mood and team activities",
@@ -101,14 +101,14 @@
         <strong>Solution:</strong> Comprehensive mood tracking with three levels of insight: personal, team, and company-wide.
         Time-based filtering (last week, 6 months, year) reveals trends and helps identify patterns in team wellbeing.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Multi-level mood analytics<br>
           @personal_mood = user.mood_trends(timeframe)<br>
           @team_mood = team.average_mood(timeframe)<br>
           @company_mood = company.overall_mood(timeframe)
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6">
       <%= image_tag "projects/glowork-moodtracker.png", class: "img-fluid rounded shadow clickable-image", alt: "Mood tracking analytics showing personal, team and company trends",
@@ -127,14 +127,14 @@
         <strong>Solution:</strong> Anonymous suggestion box where team members can share improvement ideas.
         Managers get actionable insights about what's working and what needs attention.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Anonymous suggestions<br>
           def create_suggestion(content)<br>
           &nbsp;&nbsp;team.suggestions.create(content: content, anonymous: true)<br>
           end
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6">
       <%= image_tag "projects/glowork-suggestions.png", class: "img-fluid rounded shadow clickable-image", alt: "Anonymous suggestion system interface",
@@ -153,14 +153,14 @@
         <strong>Solution:</strong> AI-powered chatbot that provides personalized wellbeing tips, stress management techniques,
         and resources based on current mood and situation.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # AI-powered recommendations<br>
           def generate_wellbeing_tip(mood, context)<br>
           &nbsp;&nbsp;OpenAI.completion(prompt: build_prompt(mood, context))<br>
           end
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6 order-md-1">
       <%= image_tag "projects/glowork-chatbot.png", class: "img-fluid rounded shadow clickable-image", alt: "GloBot wellbeing assistant chat interface",
@@ -179,7 +179,7 @@
         <strong>Solution:</strong> Integrated event calendar for team activities, celebrations, and check-ins.
         Correlate events with mood data to understand what activities boost team morale.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Event-mood correlation<br>
           def analyze_event_impact(event)<br>
@@ -187,7 +187,7 @@
           &nbsp;&nbsp;after_mood = team.mood_after(event.date)<br>
           end
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6">
       <%= image_tag "projects/glowork-events.png", class: "img-fluid rounded shadow clickable-image", alt: "Team event calendar with upcoming activities",
@@ -208,7 +208,7 @@
         <li><strong>Backend:</strong> Ruby on Rails 7 with PostgreSQL</li>
         <li><strong>AI Integration:</strong> OpenAI API for chatbot responses</li>
         <li><strong>Frontend:</strong> Bootstrap 5 with responsive design</li>
-        <li><strong>Charts:</strong> Chart.js for mood analytics visualization</li>
+        <%# <li><strong>Charts:</strong> Chart.js for mood analytics visualization</li> %>
         <li><strong>Real-time:</strong> ActionCable for live notifications</li>
       </ul>
     </div>
@@ -241,7 +241,7 @@
 <footer class="container py-5">
   <h2 class="text-primary-emphasis mb-4">Explore GloWork</h2>
   <p class="text-secondary mb-3">
-    Interested in how data-driven wellbeing can transform remote teams? Check out the code or see it in action.
+    Interested in how data-driven wellbeing can transform remote teams? Check out the code.
   </p>
   <div class="d-flex align-items-center gap-4 fs-4">
     <%= link_to "🐙 GitHub Code", "https://github.com/mikividal/GloWorkMV", target: "_blank", class: "text-decoration-none text-primary-emphasis" %>

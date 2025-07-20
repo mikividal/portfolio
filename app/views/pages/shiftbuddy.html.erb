@@ -46,14 +46,14 @@
         <strong>Solution:</strong> Automatic prioritization with STAT case alerts, real-time statistics, and color-coded urgency levels.
         Critical cases are impossible to miss with prominent red warnings.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Priority-based case organization<br>
           @stat_cases = current_user.cases.stat.pending<br>
           @daily_stats = calculate_daily_performance<br>
           @overdue_tasks = current_user.tasks.overdue
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6">
       <%= image_tag "projects/dashboard.png", class: "img-fluid rounded shadow clickable-image", alt: "Dashboard with STAT alerts and daily statistics",
@@ -72,14 +72,14 @@
         <strong>Solution:</strong> Visual hierarchy with color-coded cases (Red=STAT, Yellow=Urgent, Gray=Routine),
         time tracking, and one-click reading with automatic timers.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Visual priority system<br>
           scope :stat, -> { where(priority: :stat) }<br>
           scope :overdue, -> { where('created_at < ?', 1.hour.ago) }<br>
           enum priority: { routine: 0, urgent: 1, stat: 2 }
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6 order-md-1">
       <%= image_tag "projects/dashboard.png", class: "img-fluid rounded shadow clickable-image", alt: "Dashboard with STAT alerts and daily statistics",
@@ -98,14 +98,14 @@
         <strong>Solution:</strong> One-click marking system creates a personal library of educational cases with searchable notes,
         organized by modality (CT, MRI, X-Ray) for easy retrieval.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # Teaching case marking system<br>
           def mark_for_teaching!(notes)<br>
           &nbsp;&nbsp;update!(marked_for_teaching: true, notes_for_teaching: notes)<br>
           end
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6">
       <%= image_tag "projects/dashboard.png", class: "img-fluid rounded shadow clickable-image", alt: "Dashboard with STAT alerts and daily statistics",
@@ -124,14 +124,14 @@
         <strong>Solution:</strong> Systematic tracking of challenging cases with notes about discrepancies,
         creating structured learning from mistakes and easy handoff to attending physicians.
       </p>
-      <div class="bg-light p-3 rounded">
+      <%# <div class="bg-light p-3 rounded">
         <code class="text-sm">
           # QA marking and tracking<br>
           def mark_for_qa!(notes)<br>
           &nbsp;&nbsp;update!(marked_for_qa: true, notes_for_qa: notes)<br>
           end
         </code>
-      </div>
+      </div> %>
     </div>
     <div class="col-md-6 order-md-1">
       <%= image_tag "projects/dashboard.png", class: "img-fluid rounded shadow clickable-image", alt: "Dashboard with STAT alerts and daily statistics",
@@ -151,7 +151,7 @@
         <li><strong>Backend:</strong> Ruby on Rails 7 with PostgreSQL</li>
         <li><strong>Authentication:</strong> Devise with role-based access</li>
         <li><strong>Frontend:</strong> Bootstrap 5 with responsive design</li>
-        <li><strong>Database:</strong> Optimized with strategic indexing</li>
+        <%# <li><strong>Database:</strong> Optimized with strategic indexing</li> %>
         <li><strong>Features:</strong> Real-time notifications, time tracking, mobile-first design</li>
       </ul>
     </div>
@@ -184,7 +184,7 @@
 <footer class="container py-5">
   <h2 class="text-primary-emphasis mb-4">Explore ShiftBuddy</h2>
   <p class="text-secondary mb-3">
-    Want to see how medical workflow meets modern web development? Check out the live demo or dive into the code.
+    Want to see how medical workflow meets modern web development? Dive into the code.
   </p>
   <div class="d-flex align-items-center gap-4 fs-4">
     <%= link_to "🐙 GitHub Code", "https://github.com/mikividal/shiftbuddy", target: "_blank", class: "text-decoration-none text-primary-emphasis" %>
